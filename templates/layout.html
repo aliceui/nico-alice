@@ -33,26 +33,6 @@
         {%- if config.package.repository %}
         <a class="source" href="{{config.package.repository.url}}" target="_blank">View the Project</a>
         {%- endif %}
-        {%- block sidebar %}
-        <ul id="navigation" role="navigation">
-          <li><a href="{{content_url('index.html')}}">文档</a></li>
-          {%- set example = resource.pages|find('examples') %}
-          {%- if example %}
-          <li><a href="{{permalink_url(example)}}">演示</a></li>
-          {%- endif %}
-          {%- if config.hasHistory %}
-          <li><a href="{{content_url('history.html')}}">历史</a></li>
-          {%- endif %}
-          {%- if config.hasTest %}
-          <li><a class="test-link" href="{{content_url('tests/runner.html')}}" target="_blank">用例</a></li>
-          {%- endif %}
-          {%- if config.package.bugs %}
-          <li><a class="issue-link" href="{{config.package.bugs.url}}" target="_blank">讨论</a></li>
-          {%- endif %}
-        </ul>
-        {%- endblock %}
-        {%- block subsidebar %}
-        {%- endblock %}
       </aside>
       {%- block afterside %}{% endblock %}
       <div id="content-wrapper">
@@ -65,7 +45,7 @@
         <p class="powered">
         {%- block footer %}{%- endblock %}
         <a href="http://aralejs.org">Arale</a> •
-        <a href="http://seajs.org">SeaJS</a> •
+        <a href="http://aliceui.org">Alice</a> •
         <a href="https://github.com/spmjs/spm">spm</a> •
         <a href="{{system.homepage}}">{{system.name}}</a>
         </p>

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CWD=$(dirname "$0")
-THEME="$HOME/.spm/themes/arale"
+THEME="$HOME/.spm/themes/alice"
 JSC="https://raw.github.com/lepture/nico/master/scripts/node-jscoverage.rb"
 
 cd $CWD
@@ -14,10 +14,10 @@ else
 fi
 
 if [ ! -d $THEME ]; then
-    echo "clone nico arale theme"
-    git clone https://github.com/aralejs/nico-arale.git $THEME
+    echo "clone nico alice theme"
+    git clone https://github.com/aliceui/nico-alice.git $THEME
 else
-    echo "update nico arale theme"
+    echo "update nico alice theme"
     cd $THEME
     git pull origin master
     cd $CWD

@@ -5,7 +5,7 @@ var nico = require('nico');
 var BaseWriter = nico.BaseWriter;
 
 
-exports.name = 'arale';
+exports.name = 'alice';
 exports.version = '0.1';
 exports.lang = 'zh';
 

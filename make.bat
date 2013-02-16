@@ -1,5 +1,5 @@
 @ECHO OFF
-set THEME=%HOMEDRIVE%%HOMEPATH%\.spm\themes\arale
+set THEME=%HOMEDRIVE%%HOMEPATH%\.spm\themes\alice
 set SITE=_site
 
 if "%1" == "" goto help
