@@ -157,48 +157,45 @@ pre, code, tt {
     border-radius: 4px;
     background-color: #FFF;
 }
-#content {
+.hentry {
     position: relative;
     padding: 10px 30px 30px;
     line-height: 1.5;
+    color: #666;    
 }
-#content .entry-title {
+.hentry .entry-title {
     margin-bottom: 12px;
     font-family: "Marcellus", sans-serif;
 }
-#content .meta {
+.hentry .meta {
     color: #BCBCBD;
     font-size: 12px;
     margin: 12px 0;
 }
-#content p, #content h1, #content h2, #content h3, #content h4 {
+.hentry p, .hentry h1, .hentry h2, .hentry h3, .hentry h4 {
     font-family: Georgia,'Xin Gothic','PT Sans','Hiragino Sans GB','Helvetica Neue',Helvetica,Arial,sans-serif;
     color: #555;
 }
-#content p, #content ul, #content ol {
-    color: #666;
-}
-#content li {
-    line-height: 1.6;
+.hentry p, .hentry ul, .hentry ol {
 }
 .hentry a {
     color: #55A4F2;
     text-decoration: none;
 }
-#content h2 {
+.hentry h2 {
     margin-top: 40px;
     padding-bottom: 4px;
     border-bottom: 1px solid #ccc;
     font-family: "Marcellus", sans-serif;
 }
-#content hr {
+.hentry hr {
     display: block;
     border: 0;
     height: 4px;
     background-color: #ddd;
     margin-top: 20px;
 }
-#content pre {
+.hentry pre {
     margin: 6px 0;
     border: 1px solid #ccc;
     padding: 6px 10px;
@@ -209,7 +206,7 @@ pre, code, tt {
     font-size: 13px;
     white-space: pre;
 }
-#content code {
+.hentry code {
     font-size: 13px;
     color: rgba(0, 0, 0, 0.75);
     background-color: #fee9cc;
@@ -218,19 +215,19 @@ pre, code, tt {
     margin-left: 3px;
     margin-right: 3px;
 }
-#content pre code, #content .highlight code {
+.hentry pre code, .hentry .highlight code {
     color: #5D6A6A;
     background-color: transparent;
     margin: auto;
     padding: 0;
 }
-#content blockquote {
+.hentry blockquote {
     border-left: 0.4em solid #ddd;
     color: #777;
     margin: 15px 0;
     padding: 0 15px;
 }
-#content blockquote p {
+.hentry blockquote p {
     color: #777;
 }
 #footer-wrapper {
@@ -256,10 +253,10 @@ pre, code, tt {
 }
 
 /* other */
-#content .doc-api {
+.hentry .doc-api {
     color: #784942;
 }
-#content .doc-api em, #content .doc-api code {
+.hentry .doc-api em, .hentry .doc-api code {
     font-family: Georgia, serif;
     font-weight: normal;
     font-size: 14px;
@@ -268,13 +265,13 @@ pre, code, tt {
     background: transparent;
     font-style: italic;
 }
-#content .nico-iframe {
+.hentry .nico-iframe {
     position: relative;
 }
-#content .nico-iframe iframe {
+.hentry .nico-iframe iframe {
     width: 100%;
 }
-#content .nico-iframe .new-window {
+.hentry .nico-iframe .new-window {
     position: absolute;
     top: 30px;
     right: -40px;
@@ -284,16 +281,16 @@ pre, code, tt {
     -moz-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
 }
-#content .highlight {
+.hentry .highlight {
     background-color: transparent;
     padding-top: 1px;
     position: relative;
 }
-#content .collapse pre {
+.hentry .collapse pre {
     overflow: hidden;
     height: 60px;
 }
-#content .highlight .code-toggle {
+.hentry .highlight .code-toggle {
     position: absolute;
     top: -10px;
     right: 2px;
