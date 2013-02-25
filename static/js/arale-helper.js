@@ -9,6 +9,7 @@
 
   var mapRules = [], coverRule = [];
   mapRules.push(function(url) {
+    console.log(url);    
 
     // CDN_MODULES 直接从 alipay 的 cdn 上加载
     for (var i = 0; i < CDN_MODULES.length; i++) {
@@ -25,6 +26,7 @@
         url = url.replace(ARALE_BASE, 'http://aralejs.alipay.im/source/');
         return url;
     } 
+    console.log(url);
     return url;
   })
 
