@@ -24,7 +24,11 @@
 
     // for alice
     for(var dep in data.dependencies) {
-        seajs.use(dep);
+        // 如果依赖的是样式模块
+        if (data.dependencies[dep].indexOf('.css') > 0) {
+            seajs.use(dep);
+        }
     }
+
   })();
 </script>
