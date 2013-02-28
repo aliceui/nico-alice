@@ -33,6 +33,8 @@
         {%- if config.package.repository %}
         <a class="source" href="{{config.package.repository.url}}" target="_blank">View the Project</a>
         {%- endif %}
+        {%- block subsidebar %}
+        {%- endblock %}
       </aside>
       {%- block afterside %}{% endblock %}
       <div id="content-wrapper">
