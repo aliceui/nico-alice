@@ -2,7 +2,7 @@
 
   // 跨子域补丁
   var temp = document.domain.split('.');
-  if (document.domain !== '127.0.0.1' || isNaN(temp[temp.length - 1])) {
+  if (isNaN(temp[temp.length - 1])) {
     document.domain = temp.slice(-2).join("."); 
   }
 
