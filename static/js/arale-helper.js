@@ -1,11 +1,5 @@
 ;(function() {
 
-  // 跨子域补丁
-  var temp = document.domain.split('.');
-  if (isNaN(temp[temp.length - 1])) {
-    document.domain = temp.slice(-2).join("."); 
-  }
-
   var CDN_MODULES = [
     'jquery', 'zepto', 'json', 'jasmine', 'underscore', 'handlebars',
     'seajs', 'moment', 'async', 'store', 'swfobject', 'backbone', 'raphael'
@@ -27,21 +21,13 @@
     url = url.replace('http://aralejs.org/source/alipay', 'http://aralejs.alipay.im/source/alipay');
 
     // 如果访问 alipay.im 则从 alipay.im 加载
-    if (location.hostname.indexOf('alipay.im') != -1 || location.hash == '#alipay') {
+    if (window.location.hostname.indexOf('alipay.im') != -1 || window.location.hash == '#alipay') {
         // 链接转换成 http://arale.alipay.im/source/overlay/0.9.9/overlay.js
         url = url.replace(ARALE_BASE, 'http://aralejs.alipay.im/source/');
         return url;
-    } 
+    }
     return url;
   })
-
-  if (location.search === '?coverage=1') {
-    coverRule.push(function(url) {
-      url = url.replace('/src/', '/src-cov/');
-      return url;
-    });
-    mapRules = mapRules.concat(coverRule);
-  }
 
   seajs.config({
     base: ARALE_BASE,
