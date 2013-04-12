@@ -1,4 +1,4 @@
-seajs.use(['$', 'arale/popup/0.9.11/popup'], function($, Popup) {
+seajs.use(['$', 'arale/popup/1.0.1/popup'], function($, Popup) {
   $(function(){
     $('h4 em, h3 em, h3 code, h4 code').parent().addClass('doc-api')
     // 给 iframe 加链接
@@ -32,11 +32,11 @@ seajs.use(['$', 'arale/popup/0.9.11/popup'], function($, Popup) {
   var root = $('#sidebar-wrapper h1 sup a').html();
   if (root && Popup) {
     var name = $('#sidebar-wrapper h1 > a').html().toLowerCase();
-    var version = $('#sidebar-wrapper .version a').html();
+    var version = $('#sidebar-wrapper .version span').html();
     new Popup({
       trigger: '#sidebar-wrapper h1 > a',
       template: '<div class="popup-install">spm install '
-          +root+'.'+name+'@'+version+'</div>',
+          +root+'/'+name+'@'+version+'</div>',
       align: {
           baseXY: [0, '100%+5']
       }
@@ -57,22 +57,4 @@ seajs.use(['$', 'arale/popup/0.9.11/popup'], function($, Popup) {
         }
       });
   }
-
-  // google analytics
-  var project = $('#sidebar-wrapper h1 > a').text();
-  $('#footer-wrapper a').click(function() {
-    _gaq.push(['_trackEvent', 'Link', 'Footer', $(this).text()]);
-  });
-  $('.source').click(function() {
-    _gaq.push(['_trackEvent', 'Link', 'Button', project]);
-  });
-  $('a[href^="https://travis-ci.org/aralejs/"]').click(function() {
-    _gaq.push(['_trackEvent', 'Link', 'Travis', project]);
-  });
-  $('.test-link').click(function() {
-    _gaq.push(['_trackEvent', 'Link', 'Test', project]);
-  });
-  $('.issue-link').click(function() {
-    _gaq.push(['_trackEvent', 'Link', 'Issue', project]);
-  });
-})
+});

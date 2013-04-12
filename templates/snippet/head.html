@@ -1,45 +1,106 @@
-{% if config.google -%}
-<script type="text/javascript">
+{%- if config.google %}
+<script>
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', '{{config.google}}']);
   _gaq.push(['_trackPageview']);
 
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    if (location.port !== 80 || location.port !== 443) {
+      return;
+    }
     ga.src = 'https://ssl.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
 {%- endif %}
+
+{%- set enginefiles = engines %}
+{%- if enginefiles|length %}
+
+{%- for file in enginefiles %}
+<script src="{{content_url('')}}/sea-modules/{{file}}"></script>
+{%- endfor %}
+
+{%- else %}
+
+<script src="http://assets.spmjs.org/seajs/seajs/2.0.0/??sea.js,plugin-combo.js"></script>
+
+{%- endif %}
+
+{%- set src = src_files %}
+{%- set dist = dist_files %}
+{%- set pkg = config.package %}
 <script>
   (function() {
-    var data;
-    seajs._package = data = {{config.package|json_encode}}
-    data.dependencies && (delete data.dependencies['$'])
-    data.devDependencies && (delete data.devDependencies['$'])
 
-    seajs.config({ alias: data.dependencies })
-    seajs.config({ alias: data.devDependencies })
-    seajs.config({ alias: {{render_src(writer)}} })
+  var query = location.search;
+  var srcdir = 'src';
+  if (query.indexOf('dist') > 0) {
+    srcdir = 'dist';
+  } else if (query.indexOf('cov') > 0) {
+    srcdir = 'src-cov';
+  }
 
-    var dependencies;
-    if (data.spm && data.spm.alias) {
-        loadCss(data.spm.alias);
-    } else {
-        loadCss(data.dependencies);
+  seajs.config({
+    alias: {
+      "$": 'jquery/jquery/1.7.2/jquery',
+      "jquery": 'jquery/jquery/1.7.2/jquery',
+      "jquery-debug": 'jquery/jquery/1.7.2/jquery-debug',
+      "mocha": "gallery/mocha/1.9.0/mocha",
+      "expect": "gallery/expect/0.2.0/expect",
+      "sinon": "gallery/sinon/1.6.0/sinon"
+    },
+    map: [function(uri) {
+      var m = uri.match(/{{pkg.family}}\/{{pkg.name}}\/{{pkg.version}}\/(.*)/);
+      if (m) {
+        return resolve(m[1]);
+      }
+      return uri;
+    }],
+    comboExcludes: {test: function(uri) {
+      return !/\/\/assets\.spmjs\.org/.test(uri);
+    }}
+  });
+
+  function resolve(file) {
+    if (query.indexOf('debug') > 0) {
+      if (file.indexOf('-debug') === -1) {
+        file = file.replace(/\.(\w+)$/, '-debug.$1');
+      }
     }
+    return seajs.resolve("{{content_url('')}}/" + srcdir + "/" + file);
+  }
 
-    function loadCss(dependencies) {
-        // for alice
-        var array = [];    
-        for(var dep in dependencies) {
-            // 如果依赖的是样式模块
-            if (dependencies[dep].indexOf('.css') > 0) {
-                array.push("http://assets.spmjs.org/" + dependencies[dep]);
-            }
-        }
-        seajs.use(array);    
+  {%- if pkg.spm -%}
+    {%- if pkg.spm.alias %}
+    seajs.config({ alias: {{pkg.spm.alias|clean_alias|json_encode}}});
+    {%- endif %}
+
+    {%- if pkg.spm.devAlias %}
+    seajs.config({ alias: {{pkg.spm.devAlias|clean_alias|json_encode}}});
+    {%- endif %}
+
+    seajs.config({alias: {
+      "$-debug": 'jquery/jquery/1.7.2/jquery-debug'
+    {%- for value in src.alias %}
+      , "{{loop.key}}": resolve("{{value}}")
+    {%- endfor %}
+    }});
+
+    // 加载依赖的 css 文件
+    var aliasArray = [], cssArray = [];
+    {%- for value in pkg.spm.alias %}
+    aliasArray.push('{{value}}');
+    {%- endfor %}
+
+    for (var i=0; i<aliasArray; i++) {
+      if (aliasArray[i].indexOf('.css') > 0) {
+        cssArray.push(aliasArray[i]);
+      }
     }
-
+    seajs.use(aliasArray);
+    
+  {%- endif %}
   })();
 </script>

@@ -21,10 +21,3 @@ else
     git pull origin master
     cd $CWD
 fi
-
-if ! which jade > /dev/null; then
-    echo "install jade"
-    npm install jade -g
-else
-    echo "you have installed jade"
-fi

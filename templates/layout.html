@@ -10,13 +10,8 @@
     <link rel="stylesheet" href="{{static_url('css/normalize.css')}}" />
     <link rel="stylesheet" href="{{static_url('css/site.css')}}" />
     <link rel="stylesheet" href="{{static_url('css/solarized.css')}}" />
-    <script src="http://static.alipayobjects.com/seajs/1.3.1/sea.js"></script>
-    {%- if config.args|debug %}
-    <script>seajs._nicodebug = true</script>
-    {%- endif %}
-    <script src="{{static_url('js/arale-helper.js')}}"></script>
-    <script src="{{static_url('js/site.js')}}"></script>
     {%- include "snippet/head.html" %}
+    <script src="{{static_url('js/site.js')}}"></script>
     <!--[if lt IE 9]>
     <script src="{{static_url('js/html5shiv.js')}}"></script>
     <![endif]-->
@@ -28,7 +23,7 @@
       {%- block body %}
       <aside id="sidebar-wrapper">
         <h1><a href="{{content_url('index.html')}}">{{config.package.name|title}}</a><sup class="package-root"><a href="/">{{config.package.family}}</a></sup></h1>
-        <p class="version">当前版本：<a href="http://aralejs.org/docs/online-status.html#{{config.package.root}}-{{config.package.name}}" title="点击查看此组件发布情况">{{config.package.version}}</a></p>
+        <p class="version">当前版本：<span>{{config.package.version}}</span></p>
         <p class="description">{{config.package.description}}</p>
         <p class="keywords" style="display: none;">{{config.package.keywords[0]}}</p>
         {%- if config.package.repository %}

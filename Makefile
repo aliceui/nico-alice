@@ -1,4 +1,4 @@
-THEME = $(HOME)/.spm/themes/alice
+THEME = $(HOME)/.spm/themes/arale
 
 build-doc:
 	@nico build -v -C $(THEME)/nico.js
@@ -12,12 +12,11 @@ server:
 watch:
 	@nico server -C $(THEME)/nico.js --watch
 
-publish: clean build-doc
-	@ghp-import _site
-	@git push origin gh-pages
+publish-doc: clean build-doc
+	@rm -fr _site/sea-modules
+	@spm publish --doc _site
 
 clean:
 	@rm -fr _site
 
-
-.PHONY: build-doc debug server publish clean test coverage
+.PHONY: build-doc debug server publish clean
