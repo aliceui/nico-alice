@@ -7,7 +7,7 @@ var file = nico.sdk.file;
 var BaseWriter = nico.BaseWriter;
 
 
-exports.name = 'alice';
+exports.name = 'arale';
 exports.version = '1.0';
 exports.lang = 'zh';
 
@@ -202,8 +202,8 @@ function findCategory(pages, cat) {
     }
   });
   ret = ret.sort(function(a, b) {
-    a = a || 0;
-    b = b || 0;
+    a = a.meta.order || 10;
+    b = b.meta.order || 10;
     return parseInt(a, 10) - parseInt(b, 10);
   });
   return ret;
