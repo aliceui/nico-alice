@@ -11,6 +11,7 @@ if "%1" == "help" (
     echo.  debug         to make a debug server
     echo.  server        to make a normal server
     echo.  watch         to make a watch server
+    echo.  publish-doc   to publish documentation
     goto end
 )
 
@@ -37,6 +38,12 @@ if "%1" == "watch" (
 
 if "%1" == "server" (
     nico server -v -C %THEME%\nico.js
+    goto end
+)
+
+if "%1" == "publish-doc" (
+    spm config source.alipay.url http://yuan.alipay.im
+    spm publish --doc _site -s alipay
     goto end
 )
 
