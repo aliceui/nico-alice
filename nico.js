@@ -30,4 +30,8 @@ if (pkg.keywords && pkg.keywords.indexOf('alipay') !== -1) {
 if (['alipay'].indexOf(pkg.family) !== -1) {
   exports.assets_host = 'http://yuan.alipay.im/assets';
 }
+// stylib just for alipay
+if (['stylib'].indexOf(pkg.name) !== -1 && ['alipay'].indexOf(pkg.keywords[0]) !== -1) {
+  exports.assets_host = 'http://yuan.alipay.im/assets';
+}
 exports.package = pkg;
