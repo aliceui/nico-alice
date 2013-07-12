@@ -192,11 +192,11 @@ pre, code, tt {
 }
 .hentry pre {
     margin: 6px 0;
-    border: 1px solid #ccc;
+    border: 1px solid #eee;
     padding: 6px 10px;
     overflow: auto;
-    border-radius: 3px;
-    background-color: #F8F8F8;
+    border-radius: 2px;
+    background-color: #F8F8F9;
     line-height: 19px;
     font-size: 13px;
     white-space: pre;
