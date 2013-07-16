@@ -5,6 +5,13 @@
   src: local('Actor Regular'), local('Actor-Regular'), url(Actor.woff) format('woff');
 }
 
+@font-face {
+  font-family: 'Marmelad';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Marmelad'), local('Marmelad-Regular'), url(marmelad.woff) format('woff');
+}
+
 /* alipay iconfont */
 @font-face {  
     font-family: "rei";
@@ -64,7 +71,7 @@ pre, code, tt {
 }
 #sidebar-wrapper h1 {
     margin: 0;
-    font-family: "Actor", sans-serif;
+    font-family: "Marmelad", sans-serif;
 }
 #sidebar-wrapper .version {
     font-size: 12px;
@@ -162,7 +169,7 @@ pre, code, tt {
 }
 .hentry .entry-title {
     margin-bottom: 12px;
-    font-family: "Actor", sans-serif;
+    font-family: "Marmelad", sans-serif;
 }
 .hentry .meta {
     color: #BCBCBD;
@@ -181,7 +188,7 @@ pre, code, tt {
     margin-top: 40px;
     padding-bottom: 4px;
     border-bottom: 1px solid #ccc;
-    font-family: "Actor", sans-serif;
+    font-family: "Marmelad", sans-serif;
 }
 .hentry hr {
     display: block;
