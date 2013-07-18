@@ -30,7 +30,7 @@ seajs.use(['$'], function($) {
   });
 });
 
-seajs.use(['$', 'arale/popup/1.1.1/popup'], function($, Popup) {
+seajs.use(['$', 'arale/popup/1.1.2/popup'], function($, Popup) {
 
   // spm install message
   var root = $('#sidebar-wrapper h1 sup a').html();
