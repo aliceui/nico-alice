@@ -74,6 +74,13 @@ module.exports = function(nico) {
       var base = path.relative(path.dirname(writer.filepath), '');
       var ret = findSrc(base);
       return JSON.stringify(ret);
+    },
+    add_anchor: function(content) {
+      for (var i = 1; i <= 6; i++) {
+        var reg = new RegExp('(<h' + i + '\\sid="(.*?)">.*?)(<\/h' + i + '>)', 'g');
+        content = content.replace(reg, '$1<a href="#$2" class="anchor">¶</a>$3');
+      }
+      return content;
     }
   }
 

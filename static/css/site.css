@@ -306,6 +306,26 @@ pre, code, tt {
     line-height: 1;
 }
 
+.content-area h1 a.anchor,
+.content-area h2 a.anchor,
+.content-area h3 a.anchor,
+.content-area h4 a.anchor,
+.content-area h5 a.anchor,
+.content-area h6 a.anchor {
+    margin-left: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    visibility: hidden;
+}
+.content-area h1:hover a.anchor,
+.content-area h2:hover a.anchor,
+.content-area h3:hover a.anchor,
+.content-area h4:hover a.anchor,
+.content-area h5:hover a.anchor,
+.content-area h6:hover a.anchor {
+    visibility: visible;
+}
+
 #sidenav {
     padding-top: 10px;
     margin-top: 0;
