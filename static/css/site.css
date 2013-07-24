@@ -326,6 +326,26 @@ pre, code, tt {
     visibility: visible;
 }
 
+.entry-content h1 a.anchor,
+.entry-content h2 a.anchor,
+.entry-content h3 a.anchor,
+.entry-content h4 a.anchor,
+.entry-content h5 a.anchor,
+.entry-content h6 a.anchor {
+    margin-left: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    visibility: hidden;
+}
+.entry-content h1:hover a.anchor,
+.entry-content h2:hover a.anchor,
+.entry-content h3:hover a.anchor,
+.entry-content h4:hover a.anchor,
+.entry-content h5:hover a.anchor,
+.entry-content h6:hover a.anchor {
+    visibility: visible;
+}
+
 #sidenav {
     padding-top: 10px;
     margin-top: 0;
