@@ -33,6 +33,10 @@ body {
     background-color: #F2F0E9;
     background-image: url(bg.gif);
 }
+a {
+  color: #55A4F2;
+  text-decoration: none;
+}
 
 pre, code, tt {
     font-family: Consolas,"Liberation Mono",Courier,monospace;
@@ -179,10 +183,6 @@ pre, code, tt {
 .hentry p, .hentry h1, .hentry h2, .hentry h3, .hentry h4 {
     font-family: Georgia,'Xin Gothic','PT Sans','Hiragino Sans GB','Helvetica Neue',Helvetica,Arial,sans-serif;
     color: #555;
-}
-.hentry a {
-    color: #55A4F2;
-    text-decoration: none;
 }
 .hentry h2 {
     margin-top: 40px;
