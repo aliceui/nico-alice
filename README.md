@@ -1,6 +1,6 @@
 # Theme for Alice Documentation
 
----
+> CMD 模块可统一使用 [nico-cmd](https://github.com/spmjs/nico-cmd) 作为主题，本仓库不再维护。
 
 这是一个为 [aliceui.org](http://aliceui.org) 文档设计的 [nico](http://lab.lepture.com/nico/) 主题。
 
